@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@string/avatar_image_placeholder"
+        android:src="@drawable/avatar_image_placeholder" />
+
+    <EditText
+        android:id="@+id/nicknameEt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/rounded_input"
+        android:hint="@string/enter_your_nickname"
+        android:paddingHorizontal="16dp" />
+
+    <EditText
+        android:id="@+id/passwordEt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/rounded_input"
+        android:hint="@string/enter_your_password"
+        android:inputType="textPassword"
+        android:paddingHorizontal="16dp" />
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#3D77FF"
+        android:elevation="4dp"
+        android:text="@string/sign_in"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/signupRedirect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="@string/not_registered" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/outline_button"
+        android:text="@string/sign_up"
+        android:textColor="#000000" />
+</LinearLayout>

@@ -1,3 +1,20 @@
 <resources>
-    <string name="app_name">Chat</string>
+    <string name="app_name">chat</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="no_account_register_here">No account? Register here</string>
+    <string name="change_photo">Change Photo</string>
+    <string name="nickname">Nickname</string>
+    <string name="profession">Profession</string>
+    <string name="save">Save</string>
+    <string name="register">Register</string>
+    <string name="not_registered">Not registered?</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="what_i_do">What I do</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="enter_your_nickname">Enter your nickname</string>
+    <string name="enter_your_email">Enter Your Email</string>
+    <string name="avatar_image_placeholder">Avatar Image Placeholder</string>
 </resources>
