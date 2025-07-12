@@ -11,7 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Chat">
-
+        <activity
+            android:name=".ui.NewChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.ChatActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.auth.LoginActivity"
             android:exported="true">
@@ -21,19 +26,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.auth.RegisterActivity"
             android:exported="false" />
-
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="false" />
-
         <activity
             android:name=".ui.profile.ProfileActivity"
             android:exported="false" />
-
     </application>
 
 </manifest>
