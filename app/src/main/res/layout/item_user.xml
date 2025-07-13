@@ -4,23 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardElevation="4dp"
-    app:cardCornerRadius="8dp">
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="12dp"
-        android:gravity="center_vertical">
+        android:padding="12dp">
 
         <ImageView
             android:id="@+id/profileIv"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:clipToOutline="true"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_person"
-            android:clipToOutline="true" />
+            android:src="@drawable/ic_person" />
 
         <TextView
             android:id="@+id/nameTv"

@@ -1,4 +1,4 @@
-package com.lkuprashvili.chat.ui
+package com.lkuprashvili.chat.ui.chat
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.lkuprashvili.chat.databinding.ActivityNewChatBinding
 import com.lkuprashvili.chat.model.User
+import com.lkuprashvili.chat.ui.UserAdapter
+import com.lkuprashvili.chat.utils.Const
 import com.lkuprashvili.chat.utils.generateChatId
 
 class NewChatActivity : AppCompatActivity() {
@@ -29,24 +31,23 @@ class NewChatActivity : AppCompatActivity() {
             val chatId = generateChatId(currentUserId, user.userId)
 
             val chatMap = mapOf(
-                "users" to mapOf(
-                    "0" to currentUserId,
-                    "1" to user.userId
+                Const.USERS to mapOf(
+                    Const.ZERO to currentUserId,
+                    Const.ONE to user.userId
                 ),
-                "lastMessage" to "სალამი", // optional
-                "timestamp" to System.currentTimeMillis()
+                Const.LAST_MESSAGE to "სალამი",
+                Const.TIMESTAMP to System.currentTimeMillis()
             )
 
-            db.child("chats").child(chatId).setValue(chatMap).addOnSuccessListener {
+            db.child(Const.CHATS).child(chatId).setValue(chatMap).addOnSuccessListener {
                 val intent = Intent(this, ChatActivity::class.java)
-                intent.putExtra("chatId", chatId)
-                intent.putExtra("otherUserId", user.userId)
-                intent.putExtra("userName", user.nickname)
+                intent.putExtra(Const.CHAT_ID, chatId)
+                intent.putExtra(Const.OTHER_USER_ID, user.userId)
+                intent.putExtra(Const.USER_NAME, user.nickname)
                 startActivity(intent)
                 finish()
             }
         }
-
 
         binding.usersRv.adapter = adapter
 
@@ -56,7 +57,7 @@ class NewChatActivity : AppCompatActivity() {
     private fun loadUsers() {
         val currentUid = auth.currentUser?.uid ?: return
 
-        db.child("users").get().addOnSuccessListener { snapshot ->
+        db.child(Const.USERS).get().addOnSuccessListener { snapshot ->
             val userList = snapshot.children.mapNotNull {
                 val user = it.getValue(User::class.java)
                 user?.copy(userId = it.key ?: "")

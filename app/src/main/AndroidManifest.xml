@@ -12,13 +12,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Chat">
         <activity
-            android:name=".ui.NewChatActivity"
+            android:name=".ui.chat.NewChatActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.ChatActivity"
-            android:exported="false" />
+            android:name=".ui.chat.ChatActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ui.auth.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.auth.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,12 +33,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.auth.RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.main.MainActivity"
-            android:exported="false" />
         <activity
             android:name=".ui.profile.ProfileActivity"
             android:exported="false" />

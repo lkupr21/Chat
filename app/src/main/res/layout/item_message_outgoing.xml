@@ -3,20 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginVertical="6dp"
-    android:layout_marginHorizontal="12dp"
     android:layout_gravity="end"
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginVertical="6dp"
+    android:backgroundTint="#6F82F0"
     app:cardCornerRadius="16dp"
     app:cardElevation="2dp"
-    app:strokeWidth="0dp"
-    android:backgroundTint="#DCF8C6">
+    app:strokeWidth="0dp">
 
     <TextView
         android:id="@+id/messageText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:text="Hello!" />
+        android:gravity="center"
+        android:text="Hello!"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
 </com.google.android.material.card.MaterialCardView>

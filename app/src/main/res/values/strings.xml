@@ -17,4 +17,5 @@
     <string name="enter_your_nickname">Enter your nickname</string>
     <string name="enter_your_email">Enter Your Email</string>
     <string name="avatar_image_placeholder">Avatar Image Placeholder</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

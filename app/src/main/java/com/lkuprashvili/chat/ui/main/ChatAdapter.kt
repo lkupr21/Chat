@@ -1,6 +1,5 @@
 package com.lkuprashvili.chat.ui.main
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -16,14 +15,17 @@ class ChatAdapter(val onClick: (Conversation) -> Unit) :
 
     inner class ChatViewHolder(val binding: ItemConversationBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        @SuppressLint("CheckResult")
-        fun bind(item: Conversation) {
-            binding.nameTv.text = item.userName
-            binding.messageTv.text = item.lastMessage
-            binding.timeTv.text = item.timestamp.toTimeFormat()
-            Glide.with(binding.profileIv).load(item.userPhoto)
 
-            binding.root.setOnClickListener { onClick(item) }
+        fun bind(item: Conversation) = with(binding) {
+            nameTv.text = item.userName
+            messageTv.text = item.lastMessage
+            timeTv.text = item.timestamp.toTimeFormat()
+
+            Glide.with(profileIv.context)
+                .load(item.userPhoto)
+                .into(profileIv)
+
+            root.setOnClickListener { onClick(item) }
         }
     }
 

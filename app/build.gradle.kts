@@ -62,7 +62,11 @@ dependencies {
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
     implementation(libs.firebase.database.ktx)
+    implementation("androidx.fragment:fragment-ktx:1.6.2")
 
-    implementation ("com.github.bumptech.glide:glide:4.12.0")
-    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+    implementation("com.github.bumptech.glide:glide:4.12.0")
+    implementation(libs.firebase.storage)
+    implementation(libs.firebase.storage.ktx)
+    implementation(libs.firebase.firestore.ktx)
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
 }

@@ -28,6 +28,10 @@ class LoginActivity : AppCompatActivity() {
         binding.signupRedirect.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
+        binding.signUpButton.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
+        }
+
 
         viewModel.authResult.observe(this) { (success, error) ->
             if (success) {
