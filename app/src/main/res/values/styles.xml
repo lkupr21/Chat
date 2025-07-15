@@ -1,0 +1,11 @@
+<resources>
+    <style name="CollapsedAppBarTitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="ExpandedAppBarTitle" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+</resources>

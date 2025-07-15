@@ -2,4 +2,12 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="button_blue">#3D77FF</color>
+    <color name="button_red">#FF4444</color>
+    <color name="error_color">@color/design_default_color_error</color>
+    <color name="time_text_color">#999999</color>
+    <color name="message_text_color">#888888</color>
 </resources>

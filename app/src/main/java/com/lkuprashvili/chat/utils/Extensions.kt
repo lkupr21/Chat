@@ -1,5 +1,6 @@
 package com.lkuprashvili.chat.utils
 
+import android.content.Context
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -21,3 +22,4 @@ fun Long.toTimeFormat(): String {
 fun generateChatId(user1Id: String, user2Id: String): String {
     return if (user1Id < user2Id) "$user1Id-$user2Id" else "$user2Id-$user1Id"
 }
+fun Int.dpToPx(context: Context): Int = (this * context.resources.displayMetrics.density).toInt()

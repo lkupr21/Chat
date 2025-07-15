@@ -1,8 +1,10 @@
 package com.lkuprashvili.chat.ui.main
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.AppBarLayout
@@ -35,6 +37,10 @@ class MainActivity : AppCompatActivity() {
                 .addToBackStack(null)
                 .commit()
         }
+        val searchEditText =
+            binding.searchView.findViewById<EditText>(androidx.appcompat.R.id.search_src_text)
+        searchEditText.setHintTextColor(Color.GRAY)
+        searchEditText.setTextColor(Color.BLACK)
 
         val customBottomNav = findViewById<CustomBottomNavigationView>(R.id.customBottomNavigation)
 
@@ -53,10 +59,7 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.fragmentContainer, ProfileFragment())
                 .commit()
         }
-//        customBottomNav.findViewById<View>(R.id.fabCenter).setOnClickListener{
-//                        startActivity(Intent(this, NewChatActivity::class.java))
-//
-//        }
+
 
         binding.fabCenter.setOnClickListener {
             startActivity(Intent(this, NewChatActivity::class.java))
@@ -70,6 +73,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadChats()
+    }
+
     fun setAppBarHeight(heightPx: Int) {
         val appBar = findViewById<AppBarLayout>(R.id.appBarLayout)
         appBar?.layoutParams = appBar?.layoutParams?.apply {
@@ -78,3 +86,4 @@ class MainActivity : AppCompatActivity() {
         appBar?.requestLayout()
     }
 }
+
