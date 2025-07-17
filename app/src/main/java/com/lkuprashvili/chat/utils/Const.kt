@@ -1,6 +1,5 @@
 package com.lkuprashvili.chat.utils
 
-
 object Const {
     const val NICKNAME = "nickname"
     const val DB_ERROR = "DB Error"
@@ -21,6 +20,7 @@ object Const {
     const val USER_PROFILE = "user_profile"
     const val IMAGE_URI = "profile_image_uri"
     const val CHAT_ID = "chatId"
+    const val USER_ID = "userId"
     const val OTHER_USER_ID = "otherUserId"
     const val USER_NAME = "userName"
     const val USER_ROLE = "userRole"
@@ -34,5 +34,6 @@ object Const {
     const val UPDATE_FAILED = "Update failed"
     const val FAILED_TO_LOAD_PROFILE = "Failed to load profile"
     const val PHOTO_UPLOADED_SUCCESSFULLY = "Photo uploaded successfully"
+    const val CONVERSATIONS = "conversations"
 
 }

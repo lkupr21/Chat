@@ -16,6 +16,24 @@
     <string name="enter_your_password">Enter your password</string>
     <string name="enter_your_nickname">Enter your nickname</string>
     <string name="enter_your_email">Enter Your Email</string>
-    <string name="avatar_image_placeholder">Avatar Image Placeholder</string>
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_name_default">User Name</string>
+    <string name="user_role_default">User Role</string>
+    <string name="profile_logo_description">Profile Logo</string>
+    <string name="message_input_hint">Type a message...</string>
+    <string name="send_button_description">Send</string>
+    <string name="search_hint">Search chats</string>
+    <string name="fab_content_description">Add Chat</string>
+    <string name="select_user">აირჩიე მომხმარებელი</string>
+    <string name="profile_photo_desc">Profile photo</string>
+    <string name="logout">Logout</string>
+    <string name="search_users_hint">Search users</string>
+    <string name="no_users_found">No users found</string>
+    <string name="user_name">User</string>
+    <string name="sample_time">12:34</string>
+    <string name="last_message_preview">Last message preview...</string>
+    <string name="hey_how_are_you">Hey, how are you?</string>
+    <string name="sure_let_s_do_it">Sure, let’s do it!</string>
+
 </resources>

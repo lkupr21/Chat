@@ -5,13 +5,11 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.lkuprashvili.chat.R
+import com.lkuprashvili.chat.databinding.ActivityProfileBinding
 import com.lkuprashvili.chat.utils.Const.IMAGE_URI
 import com.lkuprashvili.chat.utils.Const.NICKNAME
 import com.lkuprashvili.chat.utils.Const.PROFESSION
@@ -19,12 +17,7 @@ import com.lkuprashvili.chat.utils.Const.USER_PROFILE
 
 class ProfileActivity : AppCompatActivity() {
 
-    private lateinit var profileImage: ImageView
-    private lateinit var changePhotoBtn: Button
-    private lateinit var nicknameEt: EditText
-    private lateinit var professionEt: EditText
-    private lateinit var saveBtn: Button
-
+    private lateinit var binding: ActivityProfileBinding
     private var selectedImageUri: Uri? = null
 
     private val pickImageLauncher =
@@ -33,22 +26,22 @@ class ProfileActivity : AppCompatActivity() {
                 val data: Intent? = result.data
                 selectedImageUri = data?.data
                 selectedImageUri?.let {
-                    Glide.with(this).load(it).into(profileImage)
+                    Glide.with(this).load(it).into(binding.profileImage)
                 }
             }
         }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile)
-
+        binding = ActivityProfileBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         loadUserData()
 
-        profileImage.setOnClickListener { openGallery() }
-        changePhotoBtn.setOnClickListener { openGallery() }
+        binding.profileImage.setOnClickListener { openGallery() }
+        binding.changePhotoBtn.setOnClickListener { openGallery() }
 
-        saveBtn.setOnClickListener {
+        binding.saveBtn.setOnClickListener {
             saveUserData()
             finish()
         }
@@ -65,19 +58,19 @@ class ProfileActivity : AppCompatActivity() {
         val profession = prefs.getString(PROFESSION, "")
         val imageUriString = prefs.getString(IMAGE_URI, null)
 
-        nicknameEt.setText(nickname)
-        professionEt.setText(profession)
+        binding.nicknameEt.setText(nickname)
+        binding.professionEt.setText(profession)
         if (imageUriString != null) {
-            Glide.with(this).load(Uri.parse(imageUriString)).into(profileImage)
+            Glide.with(this).load(Uri.parse(imageUriString)).into(binding.profileImage)
         } else {
-            profileImage.setImageResource(R.drawable.ic_profile)
+            binding.profileImage.setImageResource(R.drawable.ic_profile)
         }
     }
 
     private fun saveUserData() {
         val prefs = getSharedPreferences(USER_PROFILE, MODE_PRIVATE).edit()
-        prefs.putString(NICKNAME, nicknameEt.text.toString())
-        prefs.putString(PROFESSION, professionEt.text.toString())
+        prefs.putString(NICKNAME, binding.nicknameEt.text.toString())
+        prefs.putString(PROFESSION, binding.professionEt.text.toString())
         selectedImageUri?.let {
             prefs.putString(IMAGE_URI, it.toString())
         }

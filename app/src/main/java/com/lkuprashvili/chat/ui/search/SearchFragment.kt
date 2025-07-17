@@ -11,8 +11,8 @@ import com.google.firebase.database.FirebaseDatabase
 import com.lkuprashvili.chat.R
 import com.lkuprashvili.chat.databinding.FragmentSearchBinding
 import com.lkuprashvili.chat.model.User
-import com.lkuprashvili.chat.ui.UserAdapter
 import com.lkuprashvili.chat.ui.chat.ChatActivity
+import com.lkuprashvili.chat.ui.UserAdapter
 import com.lkuprashvili.chat.ui.main.MainActivity
 import com.lkuprashvili.chat.utils.Const
 import com.lkuprashvili.chat.utils.generateChatId
@@ -58,7 +58,6 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
             updateUi(users)
         }.addOnFailureListener {
-            Log.e("SearchFragment", "Error loading users from DB", it)
             updateUi(emptyList())
         }
     }
@@ -71,6 +70,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         intent.putExtra(Const.CHAT_ID, chatId)
         intent.putExtra(Const.OTHER_USER_ID, user.userId)
         intent.putExtra(Const.USER_NAME, user.nickname)
+        intent.putExtra(Const.USER_ROLE, user.profession)
         startActivity(intent)
     }
 

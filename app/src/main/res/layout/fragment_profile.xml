@@ -1,7 +1,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp">
+    android:paddingHorizontal="@dimen/profile_scrollview_padding_horizontal"
+    android:paddingVertical="@dimen/profile_scrollview_padding_vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,53 +12,51 @@
 
         <ImageView
             android:id="@+id/profilePhoto"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:layout_marginBottom="24dp"
-            android:background="@drawable/avatar_image_placeholder"
-            android:contentDescription="Profile photo"
-            android:padding="8dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_profile" />
+            android:layout_width="@dimen/profile_image_size"
+            android:layout_height="@dimen/profile_image_size"
+            android:layout_marginBottom="@dimen/profile_image_margin_bottom"
+            android:contentDescription="@string/profile_photo_desc"
+            android:padding="@dimen/profile_image_padding"
+            android:scaleType="centerCrop" />
 
         <EditText
             android:id="@+id/etNickname"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="12dp"
+            android:layout_height="@dimen/edittext_height"
+            android:layout_marginBottom="@dimen/nickname_margin_bottom"
             android:background="@drawable/rounded_input"
-            android:hint="Nickname"
+            android:hint="@string/nickname"
             android:inputType="textPersonName"
-            android:paddingHorizontal="16dp" />
+            android:paddingHorizontal="@dimen/edittext_padding_horizontal" />
 
         <EditText
             android:id="@+id/etProfession"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="24dp"
+            android:layout_height="@dimen/edittext_height"
+            android:layout_marginBottom="@dimen/profession_margin_bottom"
             android:background="@drawable/rounded_input"
-            android:hint="Profession"
+            android:hint="@string/profession"
             android:inputType="text"
-            android:paddingHorizontal="16dp" />
+            android:paddingHorizontal="@dimen/edittext_padding_horizontal" />
 
         <Button
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#3D77FF"
-            android:elevation="4dp"
-            android:text="Save"
-            android:textColor="#FFFFFF" />
+            android:backgroundTint="@color/button_blue"
+            android:elevation="@dimen/button_elevation"
+            android:text="@string/save"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#FF4444"
-            android:elevation="4dp"
-            android:text="Logout"
-            android:textColor="#FFFFFF" />
+            android:layout_marginTop="@dimen/logout_button_margin_top"
+            android:backgroundTint="@color/button_red"
+            android:elevation="@dimen/button_elevation"
+            android:text="@string/logout"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 

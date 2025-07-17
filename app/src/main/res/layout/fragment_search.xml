@@ -17,13 +17,12 @@
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:background="#EEE4E4E4"
+            android:layout_height="@dimen/search_view_height"
+            android:layout_marginStart="@dimen/search_view_margin_horizontal"
+            android:layout_marginEnd="@dimen/search_view_margin_horizontal"
+            android:background="@drawable/search_background"
             android:iconifiedByDefault="false"
-            android:queryHint="Search users" />
+            android:queryHint="@string/search_users_hint" />
     </com.google.android.material.appbar.MaterialToolbar>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -31,7 +30,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:clipToPadding="false"
-        android:padding="8dp"
+        android:padding="@dimen/recycler_view_padding"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,10 +41,10 @@
         android:id="@+id/noResultsTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="No users found"
+        android:text="@string/no_users_found"
         android:textAlignment="center"
-        android:textColor="@color/design_default_color_error"
-        android:textSize="16sp"
+        android:textColor="@color/error_color"
+        android:textSize="@dimen/no_results_text_size"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/usersRecyclerView"
         app:layout_constraintEnd_toEndOf="@id/usersRecyclerView"

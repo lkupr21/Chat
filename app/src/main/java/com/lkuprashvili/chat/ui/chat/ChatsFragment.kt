@@ -44,6 +44,7 @@ class ChatsFragment : Fragment() {
             intent.putExtra(Const.CHAT_ID, chat.chatId)
             intent.putExtra(Const.OTHER_USER_ID, chat.userId)
             intent.putExtra(Const.USER_NAME, chat.userName)
+            intent.putExtra(Const.USER_ROLE,chat.userRole)
             startActivity(intent)
         }
         binding.recyclerView.adapter = adapter
