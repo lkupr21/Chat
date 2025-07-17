@@ -1,23 +1,27 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="end"
-    android:layout_marginHorizontal="12dp"
-    android:layout_marginVertical="6dp"
-    android:backgroundTint="#6F82F0"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="2dp"
-    app:strokeWidth="0dp">
+    android:gravity="end"
+    android:paddingHorizontal="8dp"
+    android:paddingVertical="4dp">
 
-    <TextView
-        android:id="@+id/messageText"
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:gravity="center"
-        android:text="Hello!"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
-</com.google.android.material.card.MaterialCardView>
+        android:background="@drawable/bubble_right"
+        android:paddingStart="16dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="10dp">
+
+        <TextView
+            android:id="@+id/messageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="2dp"
+            android:maxWidth="280dp"
+            android:text="@string/sure_let_s_do_it"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+    </FrameLayout>
+</LinearLayout>

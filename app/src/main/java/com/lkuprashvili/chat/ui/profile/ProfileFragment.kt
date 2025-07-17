@@ -42,10 +42,21 @@ class ProfileFragment : Fragment() {
         if (result.resultCode == Activity.RESULT_OK) {
             val imageUri: Uri? = result.data?.data
             imageUri?.let {
-                uploadProfilePhoto(it)
+                Glide.with(this)
+                    .load(it)
+                    .circleCrop() // ✅ დაამატე ეს
+                    .into(binding.profilePhoto)
+
+                // შეინახე ლოკალურად
+                saveImageUriLocally(it)
             }
         }
     }
+    private fun saveImageUriLocally(uri: Uri) {
+        val prefs = requireContext().getSharedPreferences("user_profile", AppCompatActivity.MODE_PRIVATE)
+        prefs.edit().putString("profile_image_uri", uri.toString()).apply()
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -87,21 +98,38 @@ class ProfileFragment : Fragment() {
 
     private fun loadUserProfile() {
         val currentUserId = auth.currentUser?.uid ?: return
-        database.child(currentUserId).get().addOnSuccessListener { snapshot ->
-            val nickname = snapshot.child(NICKNAME).getValue(String::class.java) ?: ""
-            val profession = snapshot.child(PROFESSION).getValue(String::class.java) ?: ""
-            val photoUrl = snapshot.child(PHOTO_URL).getValue(String::class.java) ?: ""
 
-            binding.etNickname.setText(nickname)
-            binding.etProfession.setText(profession)
+        // წამოიღე Firebase Database-დან
+        database.child(currentUserId).get()
+            .addOnSuccessListener { dataSnapshot ->
+                val nickname = dataSnapshot.child(NICKNAME).getValue(String::class.java) ?: ""
+                val profession = dataSnapshot.child(PROFESSION).getValue(String::class.java) ?: ""
+                val photoUrl = dataSnapshot.child(PHOTO_URL).getValue(String::class.java)
 
-            if (photoUrl.isNotEmpty()) {
-                Glide.with(this).load(photoUrl).into(binding.profilePhoto)
+                binding.etNickname.setText(nickname)
+                binding.etProfession.setText(profession)
+
+                if (!photoUrl.isNullOrEmpty()) {
+                    Glide.with(this)
+                        .load(photoUrl)
+                        .circleCrop()
+                        .into(binding.profilePhoto)
+                } else {
+                    binding.profilePhoto.setImageResource(R.drawable.ic_profile)
+                }
+
+                val prefs = requireContext().getSharedPreferences("user_profile", AppCompatActivity.MODE_PRIVATE).edit()
+                prefs.putString(NICKNAME, nickname)
+                prefs.putString(PROFESSION, profession)
+                photoUrl?.let { prefs.putString("profile_image_uri", it) }
+                prefs.apply()
             }
-        }.addOnFailureListener {
-            Toast.makeText(requireContext(), FAILED_TO_LOAD_PROFILE, Toast.LENGTH_SHORT).show()
-        }
+            .addOnFailureListener {
+                Toast.makeText(requireContext(), FAILED_TO_LOAD_PROFILE, Toast.LENGTH_SHORT).show()
+            }
     }
+
+
 
     private fun openGalleryForImage() {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
@@ -131,6 +159,7 @@ class ProfileFragment : Fragment() {
 
                 Glide.with(this)
                     .load(downloadUri)
+                    .circleCrop()
                     .into(binding.profilePhoto)
 
                 Toast.makeText(requireContext(), PHOTO_UPLOADED_SUCCESSFULLY, Toast.LENGTH_SHORT)
@@ -157,21 +186,15 @@ class ProfileFragment : Fragment() {
 
 
     private fun saveProfileChanges() {
-        val currentUserId = auth.currentUser?.uid ?: return
-        val nickname = binding.etNickname.text.toString().trim()
-        val profession = binding.etProfession.text.toString().trim()
+        val prefs = requireContext().getSharedPreferences("user_profile", AppCompatActivity.MODE_PRIVATE)
+        prefs.edit()
+            .putString(NICKNAME, binding.etNickname.text.toString().trim())
+            .putString(PROFESSION, binding.etProfession.text.toString().trim())
+            .apply()
 
-        val updates = mapOf(
-            NICKNAME to nickname,
-            PROFESSION to profession
-        )
-
-        database.child(currentUserId).updateChildren(updates).addOnSuccessListener {
-            Toast.makeText(requireContext(), PROFILE_UPLOADED, Toast.LENGTH_SHORT).show()
-        }.addOnFailureListener {
-            Toast.makeText(requireContext(), UPDATE_FAILED, Toast.LENGTH_SHORT).show()
-        }
+        Toast.makeText(requireContext(), "პროფილი შეინახა", Toast.LENGTH_SHORT).show()
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

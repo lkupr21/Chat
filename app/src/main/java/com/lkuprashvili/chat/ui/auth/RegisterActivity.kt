@@ -1,6 +1,5 @@
 package com.lkuprashvili.chat.ui.auth
 
-
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -22,18 +21,19 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.registerBtn.setOnClickListener {
-            val email = binding.nicknameEt.text.toString()
-            val password = binding.passwordEt.text.toString()
-            val nickname = binding.nicknameEt.text.toString()
-            val profession = binding.professionEt.text.toString()
+            val nickname = binding.nicknameEt.text.toString().trim()
+            val password = binding.passwordEt.text.toString().trim()
+            val profession = binding.professionEt.text.toString().trim()
 
-            if (email.isEmpty() || password.isEmpty() || nickname.isEmpty() || profession.isEmpty()) {
+            if (nickname.isEmpty() || password.isEmpty() || profession.isEmpty()) {
                 Toast.makeText(this, FILL_ALL_FIELDS, Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            viewModel.register(email, password, nickname, profession)
+            val fakeEmail = "$nickname@myapp.com"
+            viewModel.register(fakeEmail, password, nickname, profession)
         }
+
         viewModel.authResult.observe(this) { (success, error) ->
             if (success) {
                 startActivity(Intent(this, MainActivity::class.java))

@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            android:minHeight="100dp"
+            android:minHeight="@dimen/collapsing_toolbar_min_height"
             app:contentScrim="@android:color/transparent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:titleEnabled="false">
@@ -32,15 +32,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:padding="16dp"
+                android:padding="@dimen/collapsing_toolbar_frame_padding"
                 app:layout_collapseMode="pin">
 
                 <androidx.appcompat.widget.SearchView
                     android:id="@+id/searchView"
                     android:layout_width="match_parent"
-                    android:layout_height="56dp"
+                    android:layout_height="@dimen/search_view_height"
                     android:background="@drawable/search_background"
-                    android:queryHint="Search chats" />
+                    android:paddingStart="@dimen/search_view_padding_start"
+                    android:paddingEnd="@dimen/search_view_padding_end"
+                    android:queryHint="@string/search_hint" />
             </FrameLayout>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -50,9 +52,8 @@
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="@dimen/fragment_container_margin_bottom"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
 
     <com.lkuprashvili.chat.ui.CustomBottomNavigationView
         android:id="@+id/customBottomNavigation"
@@ -61,16 +62,14 @@
         android:layout_gravity="bottom"
         app:layout_behavior="com.lkuprashvili.chat.ui.CustomBottomNavigationBehavior" />
 
-
-    „
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabCenter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="28dp"
-        android:contentDescription="Add Chat"
+        android:layout_marginBottom="@dimen/fab_margin_bottom"
+        android:contentDescription="@string/fab_content_description"
         android:src="@drawable/ic_add"
         android:tint="@android:color/white" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

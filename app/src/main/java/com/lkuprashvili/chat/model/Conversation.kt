@@ -6,5 +6,6 @@ data class Conversation(
     val timestamp: Long = 0L,
     val userId: String = "",
     val userName: String = "",
-    val userPhoto: String = ""
+    val userPhoto: String = "",
+    val userRole: String = "",
 )
