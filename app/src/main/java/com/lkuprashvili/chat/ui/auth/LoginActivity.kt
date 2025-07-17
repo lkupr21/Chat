@@ -20,7 +20,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.loginBtn.setOnClickListener {
-            val email = binding.nicknameEt.text.toString()
+            val nickname = binding.nicknameEt.text.toString().trim()
+            val email = "$nickname@myapp.com"
             val password = binding.passwordEt.text.toString()
             viewModel.login(email, password)
         }
