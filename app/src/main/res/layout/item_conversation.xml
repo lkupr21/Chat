@@ -9,6 +9,7 @@
         android:layout_width="@dimen/small_profile_image_size"
         android:layout_height="@dimen/small_profile_image_size"
         android:layout_marginEnd="@dimen/item_margin_end"
+        android:contentDescription="@string/profile_photo_desc"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"

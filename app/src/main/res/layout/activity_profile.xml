@@ -35,8 +35,10 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/edittext_height"
             android:layout_marginBottom="@dimen/nickname_margin_bottom"
+            android:autofillHints=""
             android:background="@drawable/rounded_input"
             android:hint="@string/nickname"
+            android:inputType="text"
             android:paddingHorizontal="@dimen/edittext_padding_horizontal" />
 
         <EditText
@@ -44,8 +46,10 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/edittext_height"
             android:layout_marginBottom="@dimen/profession_margin_bottom"
+            android:autofillHints=""
             android:background="@drawable/rounded_input"
             android:hint="@string/profession"
+            android:inputType="text"
             android:paddingHorizontal="@dimen/edittext_padding_horizontal" />
 
         <Button

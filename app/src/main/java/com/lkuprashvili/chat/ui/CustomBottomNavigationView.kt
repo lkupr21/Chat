@@ -54,13 +54,8 @@ class CustomBottomNavigationView @JvmOverloads constructor(
             if (selected) ContextCompat.getDrawable(context, R.color.black) else null
     }
 
-    fun setOnNavigationItemSelectedListener(listener: OnNavigationItemSelectedListener) {
-        this.listener = listener
-    }
-
     interface OnNavigationItemSelectedListener {
         fun onHomeSelected()
         fun onProfileSelected()
-        fun onFabClicked()
     }
 }

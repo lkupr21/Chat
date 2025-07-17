@@ -33,6 +33,7 @@
                 android:id="@+id/iconHome"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:contentDescription="@string/icon_home"
                 android:src="@drawable/ic_home" />
         </LinearLayout>
 
@@ -54,6 +55,7 @@
                 android:id="@+id/iconProfile"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
+                android:contentDescription="@string/profile_logo_description"
                 android:src="@drawable/settings" />
         </LinearLayout>
     </LinearLayout>

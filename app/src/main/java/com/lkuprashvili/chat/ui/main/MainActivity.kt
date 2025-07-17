@@ -21,7 +21,6 @@ import com.lkuprashvili.chat.ui.search.SearchFragment
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel by viewModels<ChatListViewModel>()
-    private lateinit var adapter: ChatAdapter
     private val auth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {

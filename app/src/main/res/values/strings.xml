@@ -35,5 +35,16 @@
     <string name="last_message_preview">Last message preview...</string>
     <string name="hey_how_are_you">Hey, how are you?</string>
     <string name="sure_let_s_do_it">Sure, let’s do it!</string>
+    <string name="arrow_back_description">arrow_back_description</string>
+    <string name="avatar_image_placeholder_desc">Avatar Image Placeholder</string>
+    <string name="item_background">"Item Background"</string>
+    <string name="icon_home">"Home"</string>
+    <string name="state_icon">state icon description</string>
+    <string name="no_chats_available">No chats available</string>
+    <string name="full_user_name">User Name</string>
+    <string name="placeholder_time">12:34</string>
+    <string name="home_title">Home</string>
+    <string name="profile_title">Profile</string>
+    <string name="search_title">Search</string>
 
 </resources>

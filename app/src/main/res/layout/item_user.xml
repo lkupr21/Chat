@@ -22,6 +22,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:clipToOutline="true"
+            android:contentDescription="@string/profile_photo_desc"
             android:outlineProvider="background"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_person" />
@@ -33,7 +34,7 @@
             android:layout_marginStart="12dp"
             android:layout_weight="1"
             android:fontFamily="sans-serif-medium"
-            android:text="User Name"
+            android:text="@string/full_user_name"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -41,7 +42,7 @@
             android:id="@+id/timeTv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="12:34"
+            android:text="@string/placeholder_time"
             android:textColor="#999999"
             android:textSize="12sp" />
 

@@ -50,6 +50,4 @@ class AuthRepository {
             else onResult(false, it.exception?.message)
         }
     }
-
-    fun getCurrentUser() = auth.currentUser
 }

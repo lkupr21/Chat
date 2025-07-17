@@ -22,6 +22,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/arrow_back_description"
             android:src="@drawable/ic_arrow_back"
             app:tint="@android:color/white" />
 

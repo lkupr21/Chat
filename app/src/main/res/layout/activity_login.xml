@@ -11,6 +11,7 @@
         android:layout_height="100dp"
         android:layout_gravity="center"
         android:layout_marginBottom="24dp"
+        android:contentDescription="@string/avatar_image_placeholder_desc"
         android:src="@drawable/avatar_image_placeholder" />
 
     <EditText
@@ -18,8 +19,10 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="12dp"
+        android:autofillHints=""
         android:background="@drawable/rounded_input"
         android:hint="@string/enter_your_nickname"
+        android:inputType="text"
         android:paddingHorizontal="16dp" />
 
     <EditText
@@ -27,6 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginBottom="24dp"
+        android:autofillHints=""
         android:background="@drawable/rounded_input"
         android:hint="@string/enter_your_password"
         android:inputType="textPassword"

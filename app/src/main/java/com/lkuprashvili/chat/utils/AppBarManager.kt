@@ -6,16 +6,6 @@ import com.google.android.material.appbar.AppBarLayout
 
 object AppBarManager {
 
-    fun hide(appBar: AppBarLayout?) {
-        appBar?.let {
-            it.visibility = View.GONE
-            it.layoutParams = it.layoutParams.apply {
-                height = 0
-            }
-            it.requestLayout()
-        }
-    }
-
     fun show(appBar: AppBarLayout?) {
         appBar?.let {
             it.visibility = View.VISIBLE

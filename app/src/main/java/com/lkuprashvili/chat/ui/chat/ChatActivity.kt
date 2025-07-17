@@ -105,7 +105,12 @@ class ChatActivity : AppCompatActivity() {
             val isCollapsed = totalScrollRange + verticalOffset <= 0
 
             if (isCollapsed) {
-                binding.userNameRoleContainer.setPadding(collapsedPadding, collapsedPadding, collapsedPadding, collapsedPadding)
+                binding.userNameRoleContainer.setPadding(
+                    collapsedPadding,
+                    collapsedPadding,
+                    collapsedPadding,
+                    collapsedPadding
+                )
 
                 binding.userNameRoleContainer.orientation = LinearLayout.HORIZONTAL
 
@@ -124,7 +129,6 @@ class ChatActivity : AppCompatActivity() {
             }
         }
     }
-
 
 
     private fun listenForMessages() {

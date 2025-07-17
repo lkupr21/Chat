@@ -42,6 +42,7 @@
                         android:layout_width="@dimen/toolbar_back_arrow_size"
                         android:layout_height="@dimen/toolbar_back_arrow_size"
                         android:layout_marginEnd="@dimen/toolbar_back_arrow_margin_end"
+                        android:contentDescription="@string/arrow_back_description"
                         android:src="@drawable/ic_arrow_back"
                         app:tint="@android:color/white" />
 
@@ -119,6 +120,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:autofillHints=""
                 android:background="@android:color/transparent"
                 android:hint="@string/message_input_hint"
                 android:inputType="textMultiLine"
