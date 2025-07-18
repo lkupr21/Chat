@@ -67,6 +67,11 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadUserData()
+    }
+
     private fun saveUserData() {
         val prefs = getSharedPreferences(USER_PROFILE, MODE_PRIVATE).edit()
         prefs.putString(NICKNAME, binding.nicknameEt.text.toString())

@@ -29,5 +29,6 @@ object Const {
     const val LOADING = "Loading..."
     const val FAILED_TO_LOAD_PROFILE = "Failed to load profile"
     const val CONVERSATIONS = "conversations"
-
+    const val PROFILE_UPLOADED = "Profile updated"
+    const val UPDATE_FAILED = "Update failed"
 }

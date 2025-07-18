@@ -113,6 +113,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:paddingStart="@dimen/message_input_padding_start"
+            android:layout_marginBottom="18dp"
             android:paddingEnd="@dimen/message_input_padding_end">
 
             <EditText

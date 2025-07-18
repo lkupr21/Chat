@@ -24,6 +24,8 @@ import com.lkuprashvili.chat.utils.Const.NICKNAME
 import com.lkuprashvili.chat.utils.Const.PHOTO_URL
 import com.lkuprashvili.chat.utils.Const.PROFESSION
 import com.lkuprashvili.chat.utils.Const.USERS
+import com.lkuprashvili.chat.utils.Const.PROFILE_UPLOADED
+import com.lkuprashvili.chat.utils.Const.UPDATE_FAILED
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
@@ -148,14 +150,28 @@ class ProfileFragment : Fragment() {
 
 
     private fun saveProfileChanges() {
-        val prefs =
-            requireContext().getSharedPreferences("user_profile", AppCompatActivity.MODE_PRIVATE)
-        prefs.edit()
-            .putString(NICKNAME, binding.etNickname.text.toString().trim())
-            .putString(PROFESSION, binding.etProfession.text.toString().trim())
-            .apply()
+        val nickname = binding.etNickname.text.toString().trim()
+        val profession = binding.etProfession.text.toString().trim()
+        val currentUserId = auth.currentUser?.uid ?: return
 
-        Toast.makeText(requireContext(), "პროფილი შეინახა", Toast.LENGTH_SHORT).show()
+        val updates = mapOf(
+            NICKNAME to nickname,
+            PROFESSION to profession
+        )
+
+        database.child(currentUserId).updateChildren(updates)
+            .addOnSuccessListener {
+                val prefs = requireContext().getSharedPreferences("user_profile", AppCompatActivity.MODE_PRIVATE)
+                prefs.edit()
+                    .putString(NICKNAME, nickname)
+                    .putString(PROFESSION, profession)
+                    .apply()
+
+                Toast.makeText(requireContext(), PROFILE_UPLOADED, Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Toast.makeText(requireContext(), UPDATE_FAILED, Toast.LENGTH_SHORT).show()
+            }
     }
 
 

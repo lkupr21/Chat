@@ -74,6 +74,11 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     }
 
     private fun setupSearch() {
+        binding.searchView.setOnClickListener {
+            if (binding.searchView.isIconified) {
+                binding.searchView.isIconified = false
+            }
+        }
         binding.searchView.setOnQueryTextListener(object :
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean = false
