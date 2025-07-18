@@ -33,6 +33,10 @@ class NewChatActivity : AppCompatActivity() {
         binding = ActivityNewChatBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.backButton.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+
         binding.usersRv.layoutManager = LinearLayoutManager(this)
         adapter = UserAdapter { user -> openChatWithUser(user) }
         binding.usersRv.adapter = adapter
